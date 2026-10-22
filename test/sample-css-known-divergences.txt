@@ -626,3 +626,8 @@ invented-selector||.munin-explorer-versions__toggle:focus-visible|outline-offset
 # Fhi.Metadata-l9l2n.142: «Søk om tilgang» (munin-explorer-kilde__access) ships with the Stiler patch AB#122579; delete this line
 # when helsedata pins a Stiler that carries it.
 unstyled-name||.munin-explorer-kilde__access|
+
+# Fhi.Metadata-l9l2n.146: the datasamling description's fold, the kilde page's twin; its Stiler rule is a bead of its own.
+# Delete these two lines when helsedata pins a Stiler that carries it.
+unstyled-name||.munin-explorer-datasamling__description-rest|
+unstyled-name||.munin-explorer-datasamling__description-toggle|

@@ -2,6 +2,7 @@ using System.Text.Json;
 using Fhi.Munin.Explorer.Contracts;
 using Fhi.Munin.Explorer.Logging;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -211,6 +212,22 @@ public sealed partial class DatasamlingView : ComponentBase
                           StringComparison.Ordinal)
             ? datasamling.Description
             : null;
+
+    private readonly string _instance = Guid.NewGuid().ToString("N")[..8];
+
+    private string DescriptionRestId => $"munin-explorer-datasamling-description-{_instance}";
+
+    private bool _descriptionOpen;
+    private Guid? _descriptionDatasamling;
+
+    /// <summary>A double-click or shift-click on the toggle is taking text, not asking for more.</summary>
+    private void ToggleDescription(MouseEventArgs clicked)
+    {
+        if (!RowPress.WasSelectionStandingStill(clicked))
+        {
+            _descriptionOpen = !_descriptionOpen;
+        }
+    }
 
     private bool _resolved;
     private DatasamlingDetail? _resolvedDatasamling;
@@ -601,6 +618,13 @@ public sealed partial class DatasamlingView : ComponentBase
     /// <inheritdoc />
     protected override async Task OnParametersSetAsync()
     {
+        // Another datasamling in the same view starts folded again, as the kilde page's does.
+        if (_descriptionDatasamling != Datasamling?.Id)
+        {
+            _descriptionDatasamling = Datasamling?.Id;
+            _descriptionOpen = false;
+        }
+
         Layout = BuildLayout();
         Toc = BuildToc(Layout);
 
