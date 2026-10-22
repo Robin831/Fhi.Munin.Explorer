@@ -627,7 +627,7 @@ invented-selector||.munin-explorer-versions__toggle:focus-visible|outline-offset
 # when helsedata pins a Stiler that carries it.
 unstyled-name||.munin-explorer-kilde__access|
 
-# Fhi.Metadata-l9l2n.146: the datasamling description's fold, the kilde page's twin; its Stiler rule is a bead of its own.
+# Fhi.Metadata-l9l2n.146: the datasamling description's fold, the kilde page's twin; its Stiler rule is still to be filed as a bead.
 # Delete these two lines when helsedata pins a Stiler that carries it.
 unstyled-name||.munin-explorer-datasamling__description-rest|
 unstyled-name||.munin-explorer-datasamling__description-toggle|
